@@ -4,16 +4,8 @@ library(leaflet)
 source("helper.R")
 source("add_wms.R")
 
-leaflet() %>%
-  setView(lng = 4.99, lat = 51.37, zoom = 12)
-
-
-leaflet() %>%
-  setView(lng = 4.99, lat = 51.37, zoom = 12) %>%
-  add_wms_be_cartoweb("topo_grey") %>%
-  add_data_fl_hrl() %>%
-  htmlwidgets::saveWidget("map.html", selfcontained = FALSE)
-
+# leaflet() %>%
+#   setView(lng = 4.99, lat = 51.37, zoom = 12)
 
 tvgmap <-
   leaflet() %>%

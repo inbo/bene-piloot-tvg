@@ -1,7 +1,7 @@
 library(sf)
 # st_layers("Vectordata_BE.gpkg")
 
-library(n2khab)
+# library(n2khab)
 # read_admin_areas(dsn="sac") %>%
 #   st_write("Vectordata_BE.gpkg", "Habitatrichtlijngebieden")
 
