@@ -13,7 +13,7 @@ add_data_fl_hrl <- function(map, ...) {
   leaflet::addPolygons(
     map = map,
     data = fl_hrl,
-    fillOpacity = 0,
+    fill = FALSE,
     color = "hotpink",
     popup = paste(
       "SBZ-H:", htmltools::htmlEscape(fl_hrl$sac_name),
