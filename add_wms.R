@@ -8,7 +8,12 @@
 #'
 #' @inheritParams
 #' @inheritParams
-#' @param ... Further arguments passed to addWMSTiles()
+#' @param year Year to be applied in selecting the WMS
+#' @param add_wms_legend Logical.
+#' Is a legend to be added for this WMS?
+#' Note that it cannot be toggled on and off; it appears as a separate legend.
+#' @param ... Further arguments passed to leaflet::addWMSTiles() or
+#' leaflet.extras2::addWMS()
 #'
 #' @rdname add_wms
 #' @importFrom leaflet addWMSTiles
