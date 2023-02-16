@@ -1,5 +1,7 @@
 library(dplyr)
-library(leaflet)
+library(leaflet) # for addWMSTiles()
+library(leaflet.extras) # for addWMSLegend()
+library(leaflet.extras2) # for addWMS()
 
 source("helper.R")
 source("add_wms.R")

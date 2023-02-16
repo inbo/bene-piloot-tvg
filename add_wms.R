@@ -49,15 +49,26 @@ add_wms_be_ortho <- function(map,
 add_wms_fl_habitatmap <- function(map,
                                   layers = c("BWK2Hab", "BWK2HabLabel"),
                                   transparent = TRUE,
-                                  options = WMSTileOptions(format = "image/png", transparent = transparent),
+                                  options = WMSTileOptions(
+                                    format = "image/png",
+                                    transparent = transparent,
+                                    info_format = "text/html"
+                                  ),
+                                  popup_options = popupOptions(maxWidth = 1200),
+                                  add_wms_legend = FALSE,
                                   ...) {
-  addWMSTiles(
+  addWMS(
     map = map,
     baseUrl = "https://geo.api.vlaanderen.be/INBO/wms",
     layers = layers,
     options = options,
+    popupOptions = popup_options,
     ...
-  )
+  )  %>%  {
+    if (!add_wms_legend) . else {
+      addWMSLegend(., "https://geo.api.vlaanderen.be/INBO/wms?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=BWK2Hab")
+    }
+  }
 }
 
 
@@ -69,15 +80,26 @@ add_wms_fl_habitatmap <- function(map,
 add_wms_fl_forestnature <- function(map,
                                   layers = "am:am_patdat",
                                   transparent = TRUE,
-                                  options = WMSTileOptions(format = "image/png", transparent = transparent),
+                                  options = WMSTileOptions(
+                                    format = "image/png",
+                                    transparent = transparent,
+                                    info_format = "text/html"
+                                  ),
+                                  popup_options = popupOptions(maxWidth = 600),
+                                  add_wms_legend = FALSE,
                                   ...) {
-  addWMSTiles(
+  addWMS(
     map = map,
     baseUrl = "https://www.mercator.vlaanderen.be/raadpleegdienstenmercatorpubliek/wms",
     layers = layers,
     options = options,
+    popupOptions = popup_options,
     ...
-  )
+  )  %>%  {
+    if (!add_wms_legend) . else {
+      addWMSLegend(., "https://www.mercator.vlaanderen.be/raadpleegdienstenmercatorpubliek/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=am%3Aam_patdat")
+    }
+  }
 }
 
 
@@ -89,16 +111,28 @@ add_wms_fl_agriculture <- function(map,
                                    year,
                                    layers = paste0("LbGebrPerc", year),
                                    transparent = TRUE,
-                                   options = WMSTileOptions(format = "image/png", transparent = transparent),
+                                   options = WMSTileOptions(
+                                     format = "image/png",
+                                     transparent = transparent,
+                                     info_format = "text/html"
+                                   ),
+                                   popup_options = popupOptions(maxWidth = 1200),
+                                   add_wms_legend = FALSE,
                                    ...) {
-  addWMSTiles(
+  addWMS(
     map = map,
     baseUrl = "https://geo.api.vlaanderen.be/ALV/wms",
     layers = layers,
     options = options,
+    popupOptions = popup_options,
     ...
-  )
+  )  %>%  {
+    if (!add_wms_legend) . else {
+    addWMSLegend(., "https://geo.api.vlaanderen.be/ALV/wms?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=LbGebrPerc2021")
+    }
+  }
 }
+
 
 
 
