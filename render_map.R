@@ -7,7 +7,9 @@ source("helper.R")
 source("add_wms.R")
 
 # leaflet() %>%
-#   setView(lng = 4.99, lat = 51.37, zoom = 12)
+#   setView(lng = 4.99, lat = 51.37, zoom = 15) %>%
+#   addTiles() %>%
+#   add_wms_fl_agriculture(year = 2021, add_wms_legend = TRUE)
 
 tvgmap <-
   leaflet() %>%
