@@ -6,6 +6,10 @@ library(leaflet.extras2) # for addWMS()
 source("helper.R")
 source("add_wms.R")
 
+attrib_osm <-
+  paste("&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap</a>",
+        "contributors <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>")
+
 # leaflet() %>%
 #   setView(lng = 4.99, lat = 51.37, zoom = 15) %>%
 #   addTiles() %>%
@@ -14,7 +18,8 @@ source("add_wms.R")
 tvgmap <-
   leaflet() %>%
   setView(lng = 5, lat = 51.4, zoom = 11.3) %>%
-  addTiles(group = "OpenStreetMap") %>%
+  addTiles(attribution = attrib_osm) %>%
+  addTiles(group = "OpenStreetMap", attribution = attrib_osm) %>%
   add_wms_be_ortho(group = "BE orthofoto") %>%
   add_wms_be_cartoweb("topo_grey", group = "BE topo_grey") %>%
   add_wms_fl_agriculture(year = 2021, group = "BE landbouwgebruik") %>%

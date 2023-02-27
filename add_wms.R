@@ -17,6 +17,11 @@
 #'
 #' @rdname add_wms
 #' @importFrom leaflet addWMSTiles
+
+attrib_digvl <- "&copy; <a href=https://www.vlaanderen.be/digitaal-vlaanderen/onze-oplossingen/geografische-webdiensten/ons-gis-aanbod>Digitaal Vlaanderen</a>"
+attrib_ngi <- "&copy; <a href=https://www.ngi.be/website/aanbod>Nationaal Geografisch Instituut</a>"
+
+#' @rdname add_wms
 #' @export
 add_wms_be_cartoweb <- function(map,
                              layers = c("topo", "topo_grey", "overlay", "crossborder"),
@@ -29,6 +34,7 @@ add_wms_be_cartoweb <- function(map,
     baseUrl = "https://cartoweb.wms.ngi.be/service",
     layers = layers,
     options = options,
+    attribution = attrib_ngi,
     ...
   )
 }
@@ -45,6 +51,7 @@ add_wms_be_ortho <- function(map,
     baseUrl = "https://wms.ngi.be/inspire/ortho/service",
     layers = layers,
     options = options,
+    attribution = attrib_ngi,
     ...
   )
 }
@@ -68,6 +75,7 @@ add_wms_fl_habitatmap <- function(map,
     layers = layers,
     options = options,
     popupOptions = popup_options,
+    attribution = attrib_digvl,
     ...
   )  %>%  {
     if (!add_wms_legend) . else {
@@ -99,6 +107,7 @@ add_wms_fl_forestnature <- function(map,
     layers = layers,
     options = options,
     popupOptions = popup_options,
+    attribution = attrib_digvl,
     ...
   )  %>%  {
     if (!add_wms_legend) . else {
@@ -130,6 +139,7 @@ add_wms_fl_agriculture <- function(map,
     layers = layers,
     options = options,
     popupOptions = popup_options,
+    attribution = attrib_digvl,
     ...
   )  %>%  {
     if (!add_wms_legend) . else {
