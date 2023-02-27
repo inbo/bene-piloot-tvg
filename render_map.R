@@ -29,7 +29,7 @@ tvgmap <-
   add_data_fl_werkingsgebied(group = "BE werkingsgebied") %>%
 
   addLayersControl(
-    baseGroups = c("BE topo_grey", "BE orthofoto", "OpenStreetmap"),
+    baseGroups = c("BE topo_grey", "BE orthofoto", "OpenStreetMap"),
     overlayGroups = c(
       "BE landbouwgebruik",
       "BE openbaar bos & natuur",
