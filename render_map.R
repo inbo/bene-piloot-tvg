@@ -51,7 +51,13 @@ tvgmap <-
     "BE soortbeschermingsprogramma's",
     "BE gwwingebieden & beschermingszones",
     "BE grondwatervergunningen"
-    ))
+    )) %>%
+  addMeasure(
+    position = "bottomright",
+    primaryLengthUnit = "meters",
+    secondaryLengthUnit = NA,
+    primaryAreaUnit = "hectares"
+  )
 
 tvgmap
 
