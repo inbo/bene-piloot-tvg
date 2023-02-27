@@ -60,7 +60,10 @@ tvgmap <-
     position = "bottomright",
     primaryLengthUnit = "meters",
     secondaryLengthUnit = NA,
-    primaryAreaUnit = "hectares"
+    primaryAreaUnit = "hectares",
+    localization = "nl",
+    decPoint = ",",
+    thousandsSep = "."
   )
 
 tvgmap
