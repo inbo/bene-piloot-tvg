@@ -20,6 +20,7 @@
 
 attrib_digvl <- "&copy; <a href=https://www.vlaanderen.be/digitaal-vlaanderen/onze-oplossingen/geografische-webdiensten/ons-gis-aanbod>Digitaal Vlaanderen</a>"
 attrib_ngi <- "&copy; <a href=https://www.ngi.be/website/aanbod>Nationaal Geografisch Instituut</a>"
+attrib_gdi <- "&copy; <a href=https://www.vlaanderen.be/geopunt/vlaams-geoportaal/gdi-vlaanderen>GDI-Vlaanderen</a>"
 
 #' @rdname add_wms
 #' @export

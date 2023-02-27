@@ -4,7 +4,6 @@ library(leaflet.extras) # for addWMSLegend()
 library(leaflet.extras2) # for addWMS()
 
 source("helper.R")
-source("add_wms.R")
 
 attrib_osm <-
   paste("&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap</a>",
