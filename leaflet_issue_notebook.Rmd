@@ -1,0 +1,93 @@
+---
+title: "Leaflet reprex for issue in leaflet.extras2"
+author: "Floris Vanderhaeghe"
+date: "2023-02-27"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(magrittr)
+library(leaflet)
+library(leaflet.extras2)
+attrib_digvl <- "&copy; <a href=https://www.vlaanderen.be/digitaal-vlaanderen/onze-oplossingen/geografische-webdiensten/ons-gis-aanbod>Digitaal Vlaanderen</a>"
+```
+
+```{r}
+add_wms_forestnature <- function(map,
+                                 layers = "am:am_patdat",
+                                 transparent = TRUE,
+                                 options = WMSTileOptions(
+                                   format = "image/png", 
+                                   transparent = transparent
+                                 ),
+                                 ...) {
+  addWMSTiles(
+    map = map,
+    baseUrl = "https://www.mercator.vlaanderen.be/raadpleegdienstenmercatorpubliek/wms",
+    layers = layers,
+    options = options,
+    attribution = attrib_digvl,
+    ...
+  )
+}
+```
+
+```{r}
+add_wms_forestnature_2 <- function(map,
+                                   layers = "am:am_patdat",
+                                   transparent = TRUE,
+                                   options = WMSTileOptions(
+                                     format = "image/png", 
+                                     transparent = transparent
+                                   ),
+                                   ...) {
+  addWMS(
+    map = map,
+    baseUrl = "https://www.mercator.vlaanderen.be/raadpleegdienstenmercatorpubliek/wms",
+    layers = layers,
+    options = options,
+    attribution = attrib_digvl,
+    ...
+  )
+}
+```
+
+
+## Map with `leaflet::addWMSTiles()`
+
+```{r}
+leaflet() %>%
+  setView(lng = 4.68, lat = 50.82, zoom = 12) %>%
+  addTiles() %>%
+  add_wms_forestnature(group = "Forest_Nature") %>% 
+  addLayersControl(
+    overlayGroups = "Forest_Nature",
+    options = layersControlOptions(collapsed = FALSE)
+  )
+```
+
+
+## Map with `leaflet.extras2::addWMS()`
+
+```{r}
+leaflet() %>%
+  setView(lng = 4.68, lat = 50.82, zoom = 12) %>%
+  addTiles() %>%
+  add_wms_forestnature_2(group = "Forest_Nature") %>% 
+  addLayersControl(
+    overlayGroups = "Forest_Nature",
+    options = layersControlOptions(collapsed = FALSE)
+  )
+```
+
+```{r}
+sessioninfo::session_info()
+```
+
+
