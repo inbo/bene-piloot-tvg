@@ -21,6 +21,7 @@ tvgmap <-
   addTiles(group = "OpenStreetMap", attribution = attrib_osm) %>%
   add_wms_be_ortho(group = "BE orthofoto") %>%
   add_wms_be_cartoweb("topo_grey", group = "BE topo_grey") %>%
+  add_wms_fl_grbmap(group = "BE GRB-basiskaart") %>%
   add_wms_fl_agriculture(year = 2021, group = "BE landbouwgebruik") %>%
   add_wms_fl_forestnature(group = "BE openbaar bos & natuur") %>%
   add_wms_fl_habitatmap(group = "BE habitatkaart") %>%
@@ -33,7 +34,7 @@ tvgmap <-
   add_data_fl_werkingsgebied(group = "BE werkingsgebied") %>%
 
   addLayersControl(
-    baseGroups = c("BE topo_grey", "BE orthofoto", "OpenStreetMap"),
+    baseGroups = c("BE topo_grey", "BE orthofoto", "BE GRB-basiskaart", "OpenStreetMap"),
     overlayGroups = c(
       "BE landbouwgebruik",
       "BE openbaar bos & natuur",
