@@ -59,6 +59,23 @@ add_wms_be_ortho <- function(map,
 
 #' @rdname add_wms
 #' @export
+add_wms_fl_grbmap <- function(map,
+                           layers = "GRB_BSK",
+                           transparent = TRUE,
+                           options = WMSTileOptions(format = "image/png", transparent = transparent),
+                           ...) {
+  addWMSTiles(
+    map = map,
+    baseUrl = "https://geoservices.informatievlaanderen.be/raadpleegdiensten/GRB-basiskaart/wms",
+    layers = layers,
+    options = options,
+    attribution = attrib_digvl,
+    ...
+  )
+}
+
+#' @rdname add_wms
+#' @export
 add_wms_fl_habitatmap <- function(map,
                                   layers = c("BWK2Hab", "BWK2HabLabel"),
                                   transparent = TRUE,
