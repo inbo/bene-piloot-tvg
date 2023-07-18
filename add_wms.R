@@ -1,7 +1,7 @@
 #' addWMSTiles() wrapper functions for Belgian WMS services
 #'
-#' The add_wms_*() functions are shorthand alternatives for a fully specified
-#' addWMSTiles() statement.
+#' The `add_wms_*()` functions are shorthand alternatives for a fully specified
+#' [leaflet::addWMSTiles()] or [leaflet.extras2::addWMS()] statement.
 #'
 #' On condition that these functions continue being maintained, using the
 #' shorthand functions should make your scripts more futureproof.
@@ -17,6 +17,8 @@
 #'
 #' @rdname add_wms
 #' @importFrom leaflet addWMSTiles
+#' @importFrom leaflet.extras addWMSLegend
+#' @importFrom leaflet.extras2 addWMS
 
 attrib_digvl <- "&copy; <a href=https://www.vlaanderen.be/digitaal-vlaanderen/onze-oplossingen/geografische-webdiensten/ons-gis-aanbod>Digitaal Vlaanderen</a>"
 attrib_ngi <- "&copy; <a href=https://www.ngi.be/website/aanbod>Nationaal Geografisch Instituut</a>"
