@@ -68,7 +68,7 @@ add_wms_fl_grbmap <- function(map,
                            ...) {
   addWMSTiles(
     map = map,
-    baseUrl = "https://geoservices.informatievlaanderen.be/raadpleegdiensten/GRB-basiskaart/wms",
+    baseUrl = "https://geo.api.vlaanderen.be/GRB-basiskaart/wms",
     layers = layers,
     options = options,
     attribution = attrib_digvl,
