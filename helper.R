@@ -1,14 +1,14 @@
 source("add_wms.R")
 
 library(sf)
-# st_layers("Vectordata_BE.gpkg")
+# st_layers("Vectordata.gpkg")
 
 # library(n2khab)
 # read_admin_areas(dsn="sac") %>%
-#   st_write("Vectordata_BE.gpkg", "Habitatrichtlijngebieden")
+#   st_write("Vectordata.gpkg", "Habitatrichtlijngebieden")
 
 fl_hrl <-
-  read_sf("Vectordata_BE.gpkg", "Habitatrichtlijngebieden") %>%
+  read_sf("Vectordata.gpkg", "Habitatrichtlijngebieden") %>%
   st_transform(4326)
 
 add_data_fl_hrl <- function(map, group, ...) {
@@ -32,7 +32,7 @@ add_data_fl_hrl <- function(map, group, ...) {
 }
 
 fl_werkingsgebied <-
-  read_sf("Vectordata_BE.gpkg", "werkingsgebied_intendant_perimeter") %>%
+  read_sf("Vectordata.gpkg", "werkingsgebied_intendant_perimeter") %>%
   st_transform(4326)
 
 add_data_fl_werkingsgebied <- function(map, ...) {
@@ -49,7 +49,7 @@ add_data_fl_werkingsgebied <- function(map, ...) {
 
 
 fl_zoekzones_passendbeheer <-
-  read_sf("Vectordata_BE.gpkg", "zoekzones_passendbeheer")
+  read_sf("Vectordata.gpkg", "zoekzones_passendbeheer")
 
 add_data_fl_zoekzones_passendbeheer <- function(map, group, ...) {
   leaflet::addPolygons(
@@ -79,7 +79,7 @@ add_data_fl_zoekzones_passendbeheer <- function(map, group, ...) {
 
 
 fl_soortbeschermingsprogrammas <-
-  read_sf("Vectordata_BE.gpkg", "soortbeschermingsprogrammas")
+  read_sf("Vectordata.gpkg", "soortbeschermingsprogrammas")
 
 add_data_fl_soortbeschermingsprogrammas <- function(map, group, ...) {
   leaflet::addPolygons(
@@ -110,7 +110,7 @@ add_data_fl_soortbeschermingsprogrammas <- function(map, group, ...) {
 
 
 fl_grondwaterwingebieden_en_beschermingszones <-
-  read_sf("Vectordata_BE.gpkg", "grondwaterwingebieden_en_beschermingszones")
+  read_sf("Vectordata.gpkg", "grondwaterwingebieden_en_beschermingszones")
 
 add_data_fl_grondwaterwingebieden_en_beschermingszones <- function(map, group, ...) {
   leaflet::addPolygons(
@@ -137,7 +137,7 @@ add_data_fl_grondwaterwingebieden_en_beschermingszones <- function(map, group, .
 
 
 fl_grondwatervergunningen <-
-  read_sf("Vectordata_BE.gpkg", "grondwatervergunningen_huidige")
+  read_sf("Vectordata.gpkg", "grondwatervergunningen_huidige")
 
 add_data_fl_grondwatervergunningen <- function(map, group, ...) {
   leaflet::addCircleMarkers(
@@ -164,7 +164,7 @@ add_data_fl_grondwatervergunningen <- function(map, group, ...) {
 
 
 nl_hrl <-
-  read_sf("Vectordata_NL.gpkg", "nl_sbz_natura_2000") %>%
+  read_sf("Vectordata.gpkg", "nl_sbz_natura_2000") %>%
   st_transform(4326)
 
 add_data_nl_hrl <- function(map, group, ...) {
@@ -191,7 +191,7 @@ add_data_nl_hrl <- function(map, group, ...) {
 
 
 nl_attentiezones_waterhuishouding <-
-  read_sf("Vectordata_NL.gpkg", "nl_attentiezones_waterhuishouding") %>%
+  read_sf("Vectordata.gpkg", "nl_attentiezones_waterhuishouding") %>%
   st_transform(4326)
 
 add_data_nl_attentiezones_waterhuishouding <- function(map, group, ...) {
