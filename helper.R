@@ -163,3 +163,55 @@ add_data_fl_grondwatervergunningen <- function(map, group, ...) {
 
 
 
+nl_hrl <-
+  read_sf("Vectordata_NL.gpkg", "nl_sbz_natura_2000") %>%
+  st_transform(4326)
+
+add_data_nl_hrl <- function(map, group, ...) {
+  leaflet::addPolygons(
+    map = map,
+    group = group,
+    data = nl_hrl,
+    fill = FALSE,
+    color = "hotpink",
+    popup = paste(
+      "SBZ-H:", htmltools::htmlEscape(nl_hrl$SITECODE_H),
+      htmltools::htmlEscape(nl_hrl$NAAM_N2K),
+      "<br/> Bescherming:", htmltools::htmlEscape(nl_hrl$BESCHERMIN)
+    ),
+    ...
+  ) %>%
+    addTiles(
+      urlTemplate = "",
+      attribution = attrib_nb,
+      group = group
+    )
+}
+
+
+
+nl_attentiezones_waterhuishouding <-
+  read_sf("Vectordata_NL.gpkg", "nl_attentiezones_waterhuishouding") %>%
+  st_transform(4326)
+
+add_data_nl_attentiezones_waterhuishouding <- function(map, group, ...) {
+  leaflet::addPolygons(
+    map = map,
+    group = group,
+    data = nl_attentiezones_waterhuishouding,
+    fillOpacity = 0.4,
+    color = "blue",
+    weight = 1,
+    ...
+  ) %>%
+    addTiles(
+      urlTemplate = "",
+      attribution = attrib_nb,
+      group = group
+    )
+}
+
+
+
+
+
